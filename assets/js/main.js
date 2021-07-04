@@ -2,19 +2,14 @@
   "use strict";
 
   var deliciousaApp = {
-      /* ---------------------------------------------
-          ## Content Loading
-      --------------------------------------------- */
       contentLoading: function () {
           $("body").imagesLoaded(function () {
               $('.preloader').delay(2000).fadeOut('slow');
               setTimeout(function () {
-                  //After 2s, the no-scroll class of the body will be removed
                   $('body').removeClass('no-scroll');
                   $("body").addClass("loading-done");
-              }, 2000); //Here you can change preloader time
+              }, 2000);
 
-              // Page Animation Script
               $("[data-animate]").scrolla({
                   mobile: true,
                   once: true
@@ -22,9 +17,7 @@
           });
       },
 
-      /* ---------------------------------------------
-          ## Scroll top
-      --------------------------------------------- */
+
       scroll_top: function () {
           $("body").append("<a href='#top' id='scroll-top' class='topbutton btn-hide'><span class='fa fa-angle-double-up'></span></a>");
           var $scrolltop = $('#scroll-top');
@@ -47,9 +40,7 @@
           });
       },
 
-      /* ---------------------------------------------
-          ## Menu Script
-      --------------------------------------------- */
+
       menu_script: function () {
           var w = $(window).width();
           if ($('.mobile-shop-cart').length) {
@@ -66,7 +57,6 @@
               $('.mainmenu li > .sub-menu-outer').siblings('a').append("<span class='menu-arrow fa fa-angle-down'></span>");
           }
 
-          // Accordion Menu
           var $AccordianMenu = $('.sidebar-menu .navigation a');
           var $mobileSubMenuOpen = $('.hamburger-menus');
           var $overlayClose = $('.overlaybg');
@@ -124,9 +114,6 @@
           });
       },
 
-      /*-------------------------------------------
-          ## Sticky Header
-      --------------------------------------------- */
       sticky_header: function () {
           if ($('#sticky-header').length) {
               var stickyMenu = $('.site-header').clone().appendTo('#sticky-header');
@@ -143,9 +130,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## One Page Menu Script
-      --------------------------------------------- */
       onePageMenu: function () {
           if ($('.site-header.header-style-twelve').length) {
               $('.mainmenu > li > a').on('click', function (e) {
@@ -158,9 +142,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## spinner
-      --------------------------------------------- */
       input_spinner: function () {
           if ($(".input-spinner").length) {
               var options_number = {
@@ -172,9 +153,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Background Parallax
-      --------------------------------------------- */
       bg_parallax: function () {
           if ($(".bg-parallax1").length) {
               $('.bg-parallax1').jarallax({
@@ -188,9 +166,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Pop Up Scripts
-      --------------------------------------------- */
+
       popupscript: function () {
           function getScrollBarWidth() {
               var $outer = $('<div>').css({ visibility: 'hidden', width: 100, overflow: 'scroll' }).appendTo('body'),
@@ -199,7 +175,6 @@
               return 100 - widthWithScroll;
           }
 
-          // Image Pop up
           var $popupImage = $(".popup-image");
           if ($popupImage.length > 0) {
               $popupImage.magnificPopup({
@@ -209,7 +184,6 @@
                   removalDelay: 300,
                   mainClass: 'mfp-fade',
                   callbacks: {
-                      // This prevenpt pushing the entire page to the right after opening Magnific popup image
                       open: function () {
                           $(".page-wrapper, .navbar-nav").css("margin-right", getScrollBarWidth());
                       },
@@ -220,7 +194,6 @@
               });
           }
 
-          //Video Popup
           var $videoPopup = $(".video-popup");
           if ($videoPopup.length > 0) {
               $videoPopup.magnificPopup({
@@ -255,9 +228,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Masonry Grid
-      --------------------------------------------- */
+
       masonry_grid: function () {
           var $container = $('.masonry-grid');
           $container.imagesLoaded(function () {
@@ -282,26 +253,20 @@
 
       },
 
-      /*-------------------------------------------
-          ## Initialize Plugin
-      --------------------------------------------- */
       initialize_plugin: function () {
-          // Nice Select for select input type
           if ($('.select-custom').length) {
               $('.select-custom').niceSelect();
           }
 
-          // Datepicker
+          
           $('[data-toggle="datepicker"]').datepicker({
               autoHide: true
           });
 
-          // Slider
           $('.carousel').carousel({
               interval: 7000
           })
 
-          // Scorll Bar
           if ($('.activeScrollBar').length) {
               var $sidebar_scroll = $('.activeScrollBar');
               $sidebar_scroll.TrackpadScrollEmulator();
@@ -313,9 +278,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Count Down
-      --------------------------------------------- */
       count_down: function () {
           if ($('.countdown').length) {
               $('.countdown').final_countdown({
@@ -342,9 +304,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Promo Numbers
-       --------------------------------------------- */
+    
       promo_numbers: function () {
           $(".hg-promo-numbers").each(function () {
               $(this).isInViewport(function (status) {
@@ -358,17 +318,12 @@
           });
       },
 
-      /* ---------------------------------------------
-          ## Content Video Responsive
-       --------------------------------------------- */
+    
       content_video: function () {
           var $postVideo = $('.blog-single-page');
           $postVideo.fitVids();
       },
 
-      /* ---------------------------------------------
-          ## Home Pagepiling
-      --------------------------------------------- */
       home_pagepiling: function () {
           if ($('#pagepiling').length) {
               $('#pagepiling').pagepiling({
@@ -394,7 +349,6 @@
                   sectionSelector: '.section',
                   animateAnchor: false,
 
-                  //events
                   onLeave: function (index, nextIndex, direction) { },
                   afterLoad: function (anchorLink, index) { },
                   afterRender: function () { },
@@ -402,9 +356,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Home Carousel
-       --------------------------------------------- */
+
       home_carousel: function () {
           if ($('.home-swiper-slider').length) {
               var swiper = new Swiper('.home-swiper-slider .swiper-container', {
@@ -454,9 +406,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Megamenu Carousel
-      --------------------------------------------- */
       megamenu_carousel: function () {
           var $megamenu_carousel = $('.megamenu-carousel');
           if ($megamenu_carousel.length) {
@@ -487,9 +436,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Food Menu Carousel
-      --------------------------------------------- */
+
       foodmenu_carousel: function () {
           var $foodmenu_carousel1 = $('.foodmenu_carousel');
           if ($foodmenu_carousel1.length) {
@@ -689,9 +636,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Single Foods
-      --------------------------------------------- */
+ 
       single_food: function () {
           if ($('.food-detail-slide').length > 0) {
               $('.food-detail-slide').owlCarousel({
@@ -704,9 +649,7 @@
           }
 
           if ($('.food-detail-slide').length > 0) {
-              // Pref add class active to 1st thumbnail via js
               $('.thumbnails').eq(0).addClass('active');
-              // When slider autoplay or drag is true 
               $('.food-detail-slide').on('changed.owl.carousel', function (event) {
                   $('.thumbnails').removeClass('active');
                   var sliders = 3;
@@ -716,7 +659,6 @@
                   }
                   $('.thumbnails').eq(currentItem).addClass('active');
               });
-              // When thumbnail is clicked
               $('.thumbnails a').click(function (event) {
                   event.preventDefault();
                   $('.thumbnails').removeClass('active');
@@ -727,9 +669,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Related Foodmenu Carousel
-      --------------------------------------------- */
       related_foodmenu_carousel: function () {
           var $related_foodmenu = $('.related-food-carousel');
           if ($related_foodmenu.length) {
@@ -772,9 +711,7 @@
           });
       },
 
-      /* ---------------------------------------------
-          ## Product Food Carousel
-      --------------------------------------------- */
+      
       product_food_carousel: function () {
           var $product_food = $('.product-food-carousel');
           if ($product_food.length) {
@@ -892,9 +829,6 @@
           });
       },
 
-      /* ---------------------------------------------
-          ## Chef Carousel
-      --------------------------------------------- */
       chef_carousel: function () {
           var $chef_items = $('.chef-carousel');
           if ($chef_items.length) {
@@ -936,9 +870,7 @@
               $chef_items.trigger('next.owl.carousel');
           });
       },
-      /* ---------------------------------------------
-          ## Twitter Feed Carousel
-      --------------------------------------------- */
+     
       twitterfeed_carousel: function () {
           var $twitterfeed_items = $('.twitter-feed-carousel');
           if ($twitterfeed_items.length) {
@@ -958,9 +890,7 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Blog Carousel
-      --------------------------------------------- */
+
       blog_carousel: function () {
           var $blog_items = $('.blog-post-carousel');
           if ($blog_items.length) {
@@ -1003,9 +933,7 @@
           });
       },
 
-      /* ---------------------------------------------
-          ## Blog Featured Carousel
-      --------------------------------------------- */
+
       blog_featured_carousel: function () {
           var $blog_items = $('.blog-featured-carousel');
           if ($blog_items.length) {
@@ -1042,9 +970,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Ucoming Event
-      --------------------------------------------- */
       ucoming_event: function () {
           var ucomingEvent = jQuery('.upcoming-event-carousel');
           if (ucomingEvent.length) {
@@ -1065,9 +990,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Chef Reviews
-      --------------------------------------------- */
       chef_reviews: function () {
           var $chef_reviews = $('.chef-reviews-carousel');
           if ($chef_reviews.length) {
@@ -1088,9 +1010,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Testimonial Carousel
-      --------------------------------------------- */
       testimonial_carousel: function () {
           var testimonialkSlider = jQuery('.testimonail-carousel');
           if (testimonialkSlider.length) {
@@ -1139,9 +1058,6 @@
           }
       },
 
-      /* ---------------------------------------------
-          ## Sidebar Script
-      --------------------------------------------- */
       sidebarScript: function () {
           if ($('.sidebar-items').length) {
               $('.sidebar-items').theiaStickySidebar({
@@ -1159,24 +1075,15 @@
           }
       },
 
-      /* ---------------------------------------------
-        ## Contact Form Script
-      --------------------------------------------- */
       contactFormScript: function () {
-          /* Forms validation */
-          //if submit button is clicked
           $('#submit').on('click', function () {
                 
-              //Get the data from all the fields
               var name = $('input[name=name]');
               var email = $('input[name=email]');
               var subject = $('input[name=subject]');
               var comment = $('textarea[name=comment]');
               var returnError = false;
             
-              //Simple validation to make sure user entered something
-              //Add your own error checking here with JS, but also do some error checking with PHP.
-              //If error found, add hightlight class to the text field
               if (name.val()=='') {
                   name.addClass('error');
                   returnError = true;
@@ -1193,63 +1100,44 @@
               } else comment.removeClass('error');
             
             
-              // Highlight all error fields, then quit.
               if(returnError == true){
                   return false;   
               }
             
-              //organize the data
               var data = 'name=' + name.val() + '&email=' + email.val() + '&subject=' + 
               subject.val() + '&comment='  + encodeURIComponent(comment.val());
             
-              //disabled all the text fields
               $('.text, .form-control').attr('disabled','true');
             
-              //show the loading sign
               $('.loading').show();
             
-              //start the ajax
               $.ajax({
-                  //this is the php file that processes the data and sends email
                   url: "process.php", 
 
-                  //GET method is used
                   type: "GET",
 
-                  //pass the data         
                   data: data,     
 
-                  //Do not cache the page
                   cache: false,
                 
-                  //success
                   success: function (html) {              
-                      //if process.php returned 1/true (send mail success)
                       if (html==1) {                  
-                          //hide the form
                           $('.form').fadeOut('slow');                 
                         
-                          //show the success message
                           $('.done').fadeIn('slow');
                         
-                          //if process.php returned 0/false (send mail failed)
                       } else alert('Sorry, unexpected error. Please try again later.');               
                   }       
               });
 
-              //cancel the submit button default behaviours
               return false;
           });
       },
 
-      /* ---------------------------------------------
-        ## Reservation Form Script
-      --------------------------------------------- */
+
       reservationScript: function() {
-          //if submit button is clicked
           $('#reser-submit').on('click', function () {
                 
-              //Get the data from all the fields
               var name2 = $('input[name=name2]');
               var email2 = $('input[name=email2]');
               var comment2 = $('textarea[name=comment2]');
@@ -1262,10 +1150,7 @@
               var booking_type = $('select[name=booking_type]');
               var returnError = false;
           
-              //Simple validation to make sure user entered something
-              //Add your own error checking here with JS, but also do some error checking with PHP.
-              //If error found, add hightlight class to the text field
-          
+  
               if (name2.val()=='') {
                   name2.addClass('error');
                   returnError = true;
@@ -1316,58 +1201,40 @@
                   returnError = true;
               } else food.removeClass('error');
               
-              //organize the data
               var data = 'name2=' + name2.val() + '&email2=' + email2.val() + '&date=' + 
               date.val() + '&phone=' + phone.val() + '&personnum=' + personnum.val() + '&branch=' + branch.val() + '&occasion=' + occasion.val() + '&food=' + food.val() + '&booking_type=' + booking_type.val() + '&comment2='  + encodeURIComponent(comment2.val());
             
-              //disabled all the text fields
               $('.form-controllar').attr('disabled','true');
             
-              //show the loading sign
               $('.loading2').show();
             
-              //start the ajax
               $.ajax({
-                  //this is the php file that processes the data and sends email
                   url: "reser-process.php", 
 
-                  //GET method is used
                   type: "GET",
 
-                  //pass the data         
                   data: data,     
 
-                  //Do not cache the page
                   cache: false,
-                  
-                  //success
-                  success: function (html) {              
-                      //if process.php returned 1/true (send mail success)
-                      if (html==1) {                  
-                          //hide the form
 
+                  success: function (html) {              
+                      if (html==1) {                  
+                     
                           $('.reservation-form').fadeOut('slow');                 
                         
-                          //show the success message
                           $('.done2').fadeIn('slow');
                         
-                          //if process.php returned 0/false (send mail failed)
                       } else alert('Sorry, unexpected error. Please try again later.');               
                   }       
               });
-            
-              //cancel the submit button default behaviours
-              return false;
+                          return false;
           });
       },
-      /* ---------------------------------------------
-        ## Mailchimp Form Script
-      --------------------------------------------- */
+
       mailChimpSubsCription: function() {
           var sign_up_form = $('#mc-form');
 
           sign_up_form.on('submit', function (e) {
-              // If the validator does not prevent form submit
               if (!e.isDefaultPrevented()) {
                   var url = 'subscription.php';
                   $.ajax({
@@ -1385,7 +1252,6 @@
                           if (messageAlert && messageText) {
 
                               $('#mc-form').find('.messages').html(alertBox);
-                              // Empty the form
                               $('#mc-form')[0].reset();
                           }
                       }
@@ -1395,9 +1261,7 @@
           });
       },
 
-      /* ---------------------------------------------
-       function initializ
-       --------------------------------------------- */
+
       initializ: function () {
           deliciousaApp.scroll_top();
           deliciousaApp.menu_script();
@@ -1430,9 +1294,7 @@
           deliciousaApp.mailChimpSubsCription();
       }
   };
-  /* ---------------------------------------------
-   Document ready function
-   --------------------------------------------- */
+
   $(function () {
       deliciousaApp.initializ();
   });
